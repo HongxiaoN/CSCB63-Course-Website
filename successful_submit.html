@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+SUCCESSFUL SUBMIT
+{% endblock %}
+
+
+{% block content %}
+      
+      <div>
+          <h1 class="title">CSCB63: Design and Analysis of Data Structures</h1>
+      </div>
+      
+      <section class="section">
+          {% if error %}
+          <h2>Failed Submit!</h2>
+            <div class="info">
+                <center><p style="color: red;">Reason Can not be empty!</p></center>
+            </div>
+          {% else %}
+          <h2>Successful Submit!</h2>
+          <div class="info">
+              <p> <center>You are successfully submitted! Thank you.</center> 
+              </p>
+          </div>
+          {% endif %}
+      </section>
+      
+{% endblock %}

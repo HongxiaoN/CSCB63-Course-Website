@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}
+MARKS
+{% endblock %}
+
+{% block content %}
+  <div>
+    <h1 class="title">CSCB63: Design and Analysis of Data Structures</h1>
+  </div>
+
+
+  <section class="section">
+    <h2>Marks</h2>
+      <div class="info">
+        <div class="table assignment">
+        
+          <div class="heading">
+            {% if instructor == "YES" %}
+            <div class="cell"><p>Student Username</p></div>
+            {% endif %}
+            <div class="cell"><p>Name</p></div>
+            <div class="cell"><p>Mark</p></div>
+            
+            {% if instructor == "NO" %}
+            <div class="cell">Reason for Remark</div>
+            {% endif %}
+          
+          </div>
+        
+          {% for mark in marks %}
+          <div class="row">
+            {% if instructor == "YES" %}
+            <div class="cell"><p>{{ mark.username }}</p></div>
+            {% endif %}
+          
+            <div class="cell">
+                <p>{{ mark.name }}</p>
+            </div>
+            <div class="cell">
+                <p>{{ mark.grade }}</p>
+            </div>
+          
+            {% if instructor == "NO" %}
+            <div class="cell">
+            
+              <form action="/request_remark">
+                <input  type="text" value="{{ mark.id_mark }}" style="display: none;" name="id_mark">
+                <input type="text" name="reason">
+                <input type="submit">
+              </form>
+            </div>
+              
+            {% endif %}
+          
+          </div>
+          {% endfor %}
+
+
+          {% if instructor == "NO" %}
+            {% if error %}
+              <center><p style="color: red;">Reason Can not be empty!</p></center>
+            {% endif %}
+          {% endif %}
+        
+        </div>
+      </div> 
+  </section>
+    {% if instructor == "YES" %}
+    <section class="section">
+      <h2>Remark</h2>
+      <div class="info">
+        <center class="center"><a href="/view_remark">see all the remark requests</a></center>
+      </div>
+    </section>
+    {% endif %}
+    {% if instructor == "YES" %}
+    <section class="section">
+      <h2>Enter New Mark</h2>
+      <div class="info">
+        <center class="center"><a href="/new_mark">Enter student mark</a></center>
+      </div>
+    </section>
+    {% endif %}
+
+{% endblock %}

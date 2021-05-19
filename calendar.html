@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+CALAENDAR
+{% endblock %}
+
+
+{% block content %}
+
+      <div>
+          <h1 class="title">CSCB63: Design and Analysis of Data Structures</h1>
+      </div>
+
+      <span id="Calendar"></span>
+      <section class="section">
+        <h2>Calendar</h2>
+        <div class="info">
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23D50000&amp;ctz=America%2FToronto&amp;src=Z28wc3U4a25hZmhyaGMwcG02OHVmYTliZDhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%234285F4" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="info">
+            <p>If you wish to subscribe to the calendar the address is: 
+               <a href="../static/basic.ics">ical format</a>.</p>
+            <p> Please, see more information if you need from <a href="../static/B20Winter2021CourseSyllabus.pdf" target="_blank">Syllabus</a></p>
+        </div>
+      </div>
+      </section>
+      
+{% endblock %}

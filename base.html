@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="../static/style.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul id="menu">
+        <li><a href="./index">Welcome {{ username }}</a></li>
+        <li><a href="./calendar">CALENDAR</a></li>
+        <li><a href="https://piazza.com/class/kk052lckppx73x" target="_blank">DISCUSSION</a></li>
+        <li><a href="./lectures">LECTURES</a></li>
+        <li><a href="./tutorials">TUTORIALS</a></li>
+        <li><a href="./assignments">ASSIGNMENTS</a></li>
+        <li><a href="./labs">LABS</a></li>
+        <li><a href="./tests">TESTS</a></li>
+        <li><a href="./course_team">COURSE TEAM</a></li>
+        {% if instructor == "NO" %}
+        <li><a href="/marks">MARK</a></li>
+        <li><a href="/give_feedback">FEEDBACK</a></li>
+        {% else %}
+        <li><a href="/marks">MARKS</a></li> 
+        <li><a href="/view_feedbacks">FEEDBACKS</a></li> 
+        {% endif %}
+        <li><a href="/logout">LOGOUT</a></li>
+      </ul>
+    </nav>
+
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <div>
+            <p><a href="https://web.cs.toronto.edu/contact-us/faculty-directory" target="blank_">Department of Computer Science at UofT.</a></p>
+            <p>Site designed by Hongxiao Niu & Chengye Wu & Zhuolin Fu</p> 
+        </div>
+                
+    </footer>
+
+  </div>
+</body>
+
+</html>

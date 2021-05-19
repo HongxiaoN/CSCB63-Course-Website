@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+REQUESTS OF REMARK
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1 class="title">CSCB63: Design and Analysis of Data Structures</h1>
+</div>
+
+
+<section class="section">
+    <h2>Requests of Remark</h2>
+      <div class="info table-info">
+        <div class="table assignment">
+
+          <div class="heading">
+
+              <div class="cell"><p>Grade</p></div>
+              <div class="cell"><p>Course Work</p></div>
+              <div class="cell"><p>Reason of Remark</p></div>
+              <div class="cell"><p>Student</p></div>
+
+          </div>
+
+          {% for remark in remarks %}
+          <div class="row">
+              <div class="cell"><p>{{ remark.grade }}</p></div>
+              <div class="cell"><p>{{ remark.name }}</p></div>
+              <div class="cell"><p>{{ remark.reason }}</p></div>
+              <div class="cell"><p>{{ remark.username }}</p></div>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+
+  </section>
+
+
+
+
+
+{% endblock %}
